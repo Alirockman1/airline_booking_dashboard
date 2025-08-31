@@ -1,0 +1,24 @@
+/* Main background */
+.stApp {
+    background-color: #f8f9fa;  /* Light grey */
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Sidebar styling */
+.css-1d391kg, .css-1cypcdb {  
+    background-color: #ffffff !important;
+    border-right: 1px solid #ddd;
+}
+
+/* Headers */
+h1, h2, h3 {
+    color: #1f3c88;
+    font-weight: 600;
+}
+
+/* KPI / metric cards */
+[data-testid="stMetricValue"] {
+    color: #1f3c88;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

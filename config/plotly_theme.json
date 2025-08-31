@@ -1,0 +1,11 @@
+{
+    "layout": {
+        "paper_bgcolor": "rgba(0,0,0,0)",
+        "plot_bgcolor": "rgba(255,255,255,1)",
+        "font": {"family": "Segoe UI", "color": "#2c3e50"},
+        "title": {"font": {"size": 20, "color": "#1f3c88"}},
+        "xaxis": {"gridcolor": "#eaeaea"},
+        "yaxis": {"gridcolor": "#eaeaea"},
+        "colorway": ["#1f3c88", "#ff6b6b", "#28a745", "#f39c12"]
+    }
+}
