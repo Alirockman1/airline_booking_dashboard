@@ -16,20 +16,20 @@ visualizing KPIs, booking trends, and popular travel routes.
 # Screenshots - Dashboard overview
 
  KPIs & Top Routes:
- ![KPIs Screenshot](images/Figure1.png)
+ ![KPIs Screenshot](images/Figure1.PNG)
 
  Monthly Bookings:
- ![KPIs Screenshot](images/Figure2.png)
+ ![KPIs Screenshot](images/Figure2.PNG)
 
  Ticket Type Preference:
- ![KPIs Screenshot](images/Figure3.png)
+ ![KPIs Screenshot](images/Figure3.PNG)
 
  Airline Ratings Table:
- ![Airline Ratings Screenshot](images/Figure4.png)
+ ![Airline Ratings Screenshot](images/Figure4.PNG)
 
 # Installation & Setup
  1. Clone the repository:
-    git clone https://github.com/alirockman/airline_dashboard.git
+    git clone https://github.com/Alirockman1/airline_dashboard.git
     cd airline_dashboard
 
  2. Create `.env` file with Database credentials:
@@ -85,21 +85,21 @@ visualizing KPIs, booking trends, and popular travel routes.
  - Crop to show dashboard only.
  - Save in images/ folder and reference in README.
 
-# Repository Structure
- airline_dashboard/
- ├── save_folder/
- │   ├── bookings.csv
- ├── images/
- │   ├── Figure1.png
- │   ├── Figure2.png
- │   ├── Figure3.png
- │   └── Figure4.png
- ├── src/
- │   ├── database.py
- │   ├── merg.py
- │   ├── utils.py
- │   └── wrangling.py
- ├── app.py
- ├── main.py 
- ├── requirements.txt
- └── README.md
+## Repository Structure
+# airline_dashboard/
+# ├── save_folder/
+# │   └── bookings.csv
+# ├── images/
+# │   ├── Figure1.png
+# │   ├── Figure2.png
+# │   ├── Figure3.png
+# │   └── Figure4.png
+# ├── src/
+# │   ├── database.py
+# │   ├── merg.py
+# │   ├── utils.py
+# │   └── wrangling.py
+# ├── app.py
+# ├── main.py
+# ├── requirements.txt
+# └── README.md
