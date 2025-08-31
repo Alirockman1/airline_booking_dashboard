@@ -85,21 +85,22 @@ visualizing KPIs, booking trends, and popular travel routes.
  - Crop to show dashboard only.
  - Save in images/ folder and reference in README.
 
-## Repository Structure
-# airline_dashboard/
-# ├── save_folder/
-# │   └── bookings.csv
-# ├── images/
-# │   ├── Figure1.png
-# │   ├── Figure2.png
-# │   ├── Figure3.png
-# │   └── Figure4.png
-# ├── src/
-# │   ├── database.py
-# │   ├── merg.py
-# │   ├── utils.py
-# │   └── wrangling.py
-# ├── app.py
-# ├── main.py
-# ├── requirements.txt
-# └── README.md
+# Repository Structure
+``` airline_dashboard/
+ ├── save_folder/
+ │   ├── bookings.csv
+ ├── images/
+ │   ├── Figure1.png
+ │   ├── Figure2.png
+ │   ├── Figure3.png
+ │   └── Figure4.png
+ ├── src/
+ │   ├── database.py
+ │   ├── merg.py
+ │   ├── utils.py
+ │   └── wrangling.py
+ ├── app.py
+ ├── main.py 
+ ├── requirements.txt
+ └── README.md
+ ```
