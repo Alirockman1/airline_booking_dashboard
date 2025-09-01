@@ -28,20 +28,23 @@ visualizing KPIs, booking trends, and popular travel routes.
  ![Airline Ratings Screenshot](images/Figure4.PNG)
 
 # Installation & Setup
- 1. Clone the repository:
+ 1. Download MySQL80 service:
+      https://dev.mysql.com/downloads/installer/
+
+ 2. Clone the repository:
     git clone https://github.com/Alirockman1/airline_dashboard.git
     cd airline_dashboard
 
- 2. Create `.env` file with Database credentials:
+ 3. Create `.env` file with Database credentials:
         DB_HOST=localhost
         DB_USER=root
         DB_PASSWORD=yourpassword
         DB_NAME=aviation_db
 
- 3. Install dependencies:
+ 4. Install dependencies:
     pip install -r requirements.txt
 
- 4. Run the Streamlit app:
+ 5. Run the Streamlit app:
     streamlit run main.py
 
 # Dependencies
@@ -68,22 +71,65 @@ visualizing KPIs, booking trends, and popular travel routes.
  3. Check the most popular routes and airlines.
  4. Analyze trends with charts and tables.
 
+# Database Overview
+ - Booking
+   - Stores details of individual bookings made by passengers along with passenger profile information
+   - Key columns: booking_id, airline_id, flight_id, booking_date, booking_count, passenger_age, passenger_name, gender, passenger_age, booking_status, flight_rating.
+   - Usage: Analyze booking trends over time, calculate growth rates, segment customers by demographics.
+
+ - Flight
+   - Contains information about flights offered by the airline.
+   - Key columns: flight_id, flight_number, departure_airport, arrival_airport, scheduled_departure, scheduled_arrival.
+   - Usage: Track flight schedules, delays, and link bookings to specific flights.
+ 
+ - Airline
+   - Stores data about frequently traveled airlines.
+   - Key columns: airline_id, IATA, name, international or domestic.
+   - Usage: 
+
+ - Airplane
+   - Stores details about individual aircraft in the fleet.
+   - Key columns: airplane_id, airplane_type_id, airline_id, manufacture_year, capacity, status.
+   - Usage: Fleet management, aircraft utilization analysis, maintenance planning.
+
+ - Airplane Type
+   - Contains specifications of airplane models used across the fleet.
+   - Key columns: airplane_type_id, manufacturer, model, range, seating_capacity, engine_type.
+   - Usage: Standardize airplane classifications, support fleet composition analysis, optimize route assignments.
+
+ - Airport
+   - Contains metadata about airports.
+   - Key columns: airport_code, airport_name, city, country.
+   - Usage: Geographic analysis of flight routes, network optimization.
+
+ - Passenger Feedback
+   - Collects passenger reviews and service ratings.
+   - Key columns: feedback_id, booking_id, flight_id, rating, comments, submission_date.
+   - Usage: Assess customer satisfaction, identify service improvement areas, track airline/flight performance trends.
+
+ Database:
+ ![Relationship Map](images/Relationship_map.png)
+
 # Questions Answered
- Q: How to show top routes as metrics?
- - Combine origin and destination columns to create a route column.
- - Aggregate bookings by route and display the top N using st.metric inside st.columns.
+ **Q: What age demographic should promotions target?**
+ - Adults aged 30 to 65 years make up the largest share of passengers.
+ - Offering premium packages (e.g., business lounge access, priority boarding) is projected to increase new customer acquisition in this group by ~33%.
 
- Q: How to calculate booking growth from booking_month?
- - Convert booking_month to datetime.
- - Filter for the latest month and previous month.
- - Sum bookings and calculate growth percentage:
-   growth_pct = ((current_month_bookings - previous_month_bookings) / previous_month_bookings) * 100
- - Display with st.metric including delta for +/- growth.
+ **Q: How airfare was effected by Covid?**
+ - Domestic travel remained relatively resilient, showing a much smaller decline compared to international flights.
+ - International bookings dropped sharply during 2020–2021, with recovery lagging by almost two years compared to domestic routes.
+ - Post-COVID, domestic routes continue to account for a larger market share than before the pandemic.
 
- Q: How to take screenshots for GitHub?
- - Use OS shortcuts (Win+Shift+S, Cmd+Shift+4) or browser screenshot tools.
- - Crop to show dashboard only.
- - Save in images/ folder and reference in README.
+ **Q: Which destination should be promoted?**
+ - Leisure destinations (Qatar and Turkey) show the highest seasonal spikes in bookings.
+ - Summer season is still dominated by Domestic travel.
+ - City hubs with consistent year-round demand (e.g., Frankfurt, London) are already saturated, suggesting summer holiday destinations should be prioritized for promotional campaigns.
+
+ **Q: Which airline is preferred by passengers travelling to summer destination?**
+ - Among passengers departing from Pakistan to popular summer destinations (Middle East, Turkey, Southeast Asia, and Europe), Emirates, Qatar Airways, and Turkish Airlines consistently receive the highest share of bookings. Together, they account for over half of international summer traffic.
+ - Regional carriers such as Airblue, Serene Air, and AirSial dominate domestic and short-haul regional routes, but their market share for long-haul summer travel is limited.
+ - Fly Jinnah and Pegasus Airlines are increasingly attractive for budget-conscious travelers, particularly younger passengers under 30, though they show lower average satisfaction scores compared to premium Gulf and European airlines.
+ - SriLankan Airlines, Malaysia Airlines, and Cathay Pacific are niche but valuable players, capturing passengers heading towards Southeast Asia and the Far East.
 
 # Repository Structure
 ``` airline_dashboard/

@@ -102,20 +102,28 @@ def dashboard(database, title = "FlightHub Pakistan", save_dir = "E:/MyFolder/My
     preferred_destination = dest_count.loc[dest_count['booking_count'].idxmax(), 'destination_city']
     
     # Get current month (latest month in your data)
-    current_month = booking_filtered['booking_month'].max()
+    # Make sure booking_date is datetime
+    booking_filtered['booking_date'] = pd.to_datetime(booking_filtered['booking_date'])
+
+    # Extract normalized month (first day of each month)
+    booking_filtered['month'] = booking_filtered['booking_date'].dt.to_period('M').dt.to_timestamp()
+
+    # Find current and previous months
+    current_month = booking_filtered['month'].max()
     previous_month = current_month - pd.DateOffset(months=1)
 
-    # Sum bookings for current and previous month
-    current_month_bookings = booking_filtered.loc[
-        booking_filtered['booking_month'] == current_month, 'booking_count'
-    ].sum()
+    # Aggregate bookings by month
+    monthly_bookings = booking_filtered.groupby('month')['booking_count'].sum()
 
-    previous_month_bookings = booking_filtered.loc[
-        booking_filtered['booking_month'] == previous_month, 'booking_count'
-    ].sum()
+    # Lookup values
+    current_month_bookings = monthly_bookings.get(current_month, 0)
+    previous_month_bookings = monthly_bookings.get(previous_month, 0)
 
-    # Calculate growth percentage
-    growth_pct = ((current_month_bookings - previous_month_bookings) / previous_month_bookings) * 100
+    # Growth %
+    if previous_month_bookings > 0:
+        growth_pct = ((current_month_bookings - previous_month_bookings) / previous_month_bookings) * 100
+    else:
+        growth_pct = None
 
     # Display metric
     col1.metric("👥 Total Travelers", f"{total_travelers:,}")

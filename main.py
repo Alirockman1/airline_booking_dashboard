@@ -23,7 +23,7 @@ def main():
     # 4. Display summary of final DataFrames using utility
     # database_insight(flight_merged_df, name="Flight Merged DataFrame")
     # database_insight(booking_df, name="Booking DataFrame")
-    database_insight(airline_merged_df, name="Airline Merged DataFrame")
+    # database_insight(airline_merged_df, name="Airline Merged DataFrame")
 
     dashboard(booking_df, rating = airline_merged_df)
 
